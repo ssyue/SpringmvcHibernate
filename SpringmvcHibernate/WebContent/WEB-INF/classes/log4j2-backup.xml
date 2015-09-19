@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<appender name="journaldev-hibernate" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="logs/project.log" />
+		<param name="Append" value="true" />
+		<param name="ImmediateFlush" value="true" />
+		<param name="MaxFileSize" value="200MB" />
+		<param name="MaxBackupIndex" value="50" />
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %d{Z} [%t] %-5p (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+	<Loggers>
+		<Logger name="com.spring.mvc.controller.UserController" level="debug">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="com.spring.mvc.dao.daoImpl.UserDaoImpl" level="debug">
+			<Appender-ref ref="journaldev-hibernate" />
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+
+</Configuration>
