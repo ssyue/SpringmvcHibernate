@@ -33,7 +33,7 @@ http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 			<value>root</value>
 		</property>
 		<property name="password">
-			<value>yue642969318</value>
+			<value>123456</value>
 		</property>
 		<property name="maxPoolSize">
 			<value>80</value>
